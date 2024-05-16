@@ -1,0 +1,22 @@
+{
+    "development": {
+      "username": "ivantageAdmin",
+      "password": "ivantagedb",
+      "database": "imperial-blog",
+      "host": "34.228.134.49",
+      "dialect": "mysql"
+    },
+    "test": {
+      "username": "root",
+      "password": null,
+      "database": "database_test",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production": {
+      "username": "ivantageAdmin",
+      "password": "ivantagedb",
+      "database": "imperial-blog",
+      "host": "3.82.208.184",
+      "dialect": "mysql"
+    }}
