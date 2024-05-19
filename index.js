@@ -18,10 +18,7 @@ const cookieParser = require('cookie-parser')
 
 dotenv.config()
 app.use(bodyParser.json({limit: '100mb', extended: true}))
-app.use(cors({
-    origin: '*', 
-    credentials: true
-}))
+app.use(cors())
 morganBody(app, {
     stream: log,
   });

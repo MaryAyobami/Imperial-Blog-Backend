@@ -1,22 +1,23 @@
 {
-    "development": {
-      "username": "ivantageAdmin",
-      "password": "ivantagedb",
-      "database": "imperial-blog",
-      "host": "34.228.134.49",
-      "dialect": "mysql"
-    },
-    "test": {
-      "username": "root",
-      "password": null,
-      "database": "database_test",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
-    },
-    "production": {
-      "username": "ivantageAdmin",
-      "password": "ivantagedb",
-      "database": "imperial-blog",
-      "host": "3.82.208.184",
-      "dialect": "mysql"
-    }}
+  "development": {
+    "username": "root",
+    "password": "bl09simper1@l",
+    "database": "imperialBlog",
+    "host": "ec2-18-224-238-148.us-east-2.compute.amazonaws.com",
+    "port" : "3308",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "bl09simper1@l",
+    "database": "imperialBlog",
+    "host": "ec2-18-224-238-148.us-east-2.compute.amazonaws.com",
+    "dialect": "mysql",
+    "port": "3308"    }}
