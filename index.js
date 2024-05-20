@@ -8,17 +8,21 @@ const morgan = require("morgan")
 const morganBody = require("morgan-body")
 const fs = require("fs")
 const path = require("path")
+app.use(cors())
+
 const accessLogStream = fs.createWriteStream(
     path.join(__dirname, "logs", "access.log")
   );
 const log = fs.createWriteStream(path.join(__dirname, "logs", "express.log"), {
     flags: "a",
 });
+
 const cookieParser = require('cookie-parser')
 
 dotenv.config()
+
 app.use(bodyParser.json({limit: '100mb', extended: true}))
-app.use(cors())
+
 morganBody(app, {
     stream: log,
   });
