@@ -28,7 +28,10 @@ const sendNewsletterEmail = async (maillist, subject, content, blogposts, date, 
     const payload = { content, blogposts, date , events, coverImage };
     const options = () => {
       return { 
-        from: process.env.SES_FROM,
+        from: {
+          name: 'Imperial Homes Mortgage Bank',
+          address:  process.env.SES_FROM,
+      },
         subject: subject,
         html: compiledTemplate(payload),
         bcc: maillist,
