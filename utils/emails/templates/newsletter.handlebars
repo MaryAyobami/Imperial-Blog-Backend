@@ -19,12 +19,41 @@
           </div>
         </div>
         
-        <div style="background-size: cover; padding: 10px; color: #fff; background: linear-gradient(to bottom right,  #353535 90%, #e74804 15%);" >
+          <div
+          style="
+            position: relative;
+            background: {{#if coverImage}}
+              url({{{coverImage}}}) no-repeat center center / cover
+            {{else}}
+              linear-gradient(to bottom right, #353535 90%, #e74804 15%)
+            {{/if}};
+            padding: 10px;
+            color: #fff;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0, 0, 0, 0.5);
+              pointer-events: none;
+            "
+          ></div>
+          <div
+            style="
+              position: relative;
+                        z-index: 1;
+              "
+            >
           <p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">{{date}}</p>
           
         
           <p style="font-size: 40px; text-transform: uppercase; margin: 0; text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"> Newsletter</p>
         
+        </div>
         </div>
    
 

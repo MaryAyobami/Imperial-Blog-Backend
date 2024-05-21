@@ -18,7 +18,7 @@ router.route("/newsletter/remove/:id").delete(newsletterController.removeNewslet
 router.route("/newsletter/add-recipient").post(newsletterController.addRecipient)
 router.route("/newsletter/getall-recipients").get(newsletterController.getAllRecipients)
 router.route("/newsletter/remove-recipient/:email").delete(newsletterController.removeRecipient)
-router.route("/newsletter/send").post(uploadS3.fields([{name : 'events', maxCount: 1}]), newsletterController.SendNewsletter)
-router.route("/newsletter/send-sample").post(uploadS3.fields([{name : 'events', maxCount: 1}]), newsletterController.SendSampleNewsletter)
+router.route("/newsletter/send").post(uploadS3.fields([{name : 'events', maxCount: 1},{name : 'coverImage', maxCount: 1}]), newsletterController.SendNewsletter)
+router.route("/newsletter/send-sample").post(uploadS3.fields([{name : 'events', maxCount: 1},{name : 'coverImage', maxCount: 1}]), newsletterController.SendSampleNewsletter)
 router.route("/newsletter/getall").get(newsletterController.getAllNewsletter)
 module.exports = router

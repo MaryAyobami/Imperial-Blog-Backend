@@ -33,15 +33,19 @@ exports.SendNewsletter = async (req, res, next) => {
         attributes: ["email"]
       });
       const events = req.files.events? req.files.events[0].location :  req.body.events
+      const coverImage =  req.files.coverImage? req.files.coverImage[0].location :  req.body.coverImage 
+
       const emailAddresses = recipients.map(recipient => recipient.email);
       emailAddresses.map(email=>
-        sendNewsletterEmail( email, subject, content, JSON.parse(blogPosts), formattedDate, events)
+        sendNewsletterEmail( email, subject, content, JSON.parse(blogPosts), formattedDate, events, coverImage)
       )
      await db.Newsletter.create({
         subject: req.body.subject,
         content: req.body.content,
         blogposts: JSON.parse(req.body.blogPosts),
-        events:  req.files.events? req.files.events[0].location :  req.body.events 
+        events:  req.files.events? req.files.events[0].location :  req.body.events ,
+        coverImage:  req.files.coverImage? req.files.coverImage[0].location :  req.body.coverImage 
+        
       });
 
       res.status(200).json({
@@ -65,18 +69,20 @@ exports.SendSampleNewsletter = async (req, res, next) => {
       const {subject, content, blogPosts, emails, } = req.body
       console.log(req.files)
       const events = req.files.events? req.files.events[0].location :  req.body.events
+      const coverImage =  req.files.coverImage? req.files.coverImage[0].location :  req.body.coverImage 
       const today = new Date();
       const options = { month: 'long', day: 'numeric', year: 'numeric' };
       const formattedDate = today.toLocaleDateString('en-US', options);
       console.log(emails)
       emails.map(email=>
-        sendNewsletterEmail( email, subject, content, JSON.parse(blogPosts), formattedDate, events)
+        sendNewsletterEmail( email, subject, content, JSON.parse(blogPosts), formattedDate, events, coverImage)
       )
       await db.Newsletter.create({
         subject: req.body.subject,
         content: req.body.content,
         blogposts: JSON.parse(req.body.blogPosts),
-        events: req.files.events? req.files.events[0].location :  req.body.events 
+        events: req.files.events? req.files.events[0].location :  req.body.events,
+        coverImage: req.files.coverImage? req.files.coverImage[0].location :  req.body.coverImage 
       });
 
       res.status(200).json({

@@ -41,6 +41,8 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+db.sequelize.sync({alter: true})
+
 db.Blog =  require('./blog.js')(sequelize,DataTypes)
 db.BlogDraft =  require('./blogDraft.js')(sequelize,DataTypes)
 db.BlogAdmin =  require('./blogadmin.js')(sequelize,DataTypes)
