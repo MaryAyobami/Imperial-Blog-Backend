@@ -155,11 +155,13 @@ exports.addRecipient = async (req, res, next) => {
     }
 
     const emails = emailString.split(",").map((email) => email.trim());
-
+    console.log(emailString)
+    console.log(emails)
     let createdRecipients = [];
     let existingRecipients = [];
 
     for (const email of emails) {
+      console.log(email)
       if (!email) {
         return res.status(400).json({
           success: false,
@@ -245,7 +247,7 @@ exports.getAllRecipients = async (req, res, next) => {
       res.status(200).json({
         status: true,
         message: `Recipients found successfully`,
-        recipients
+        recipients,
         
       });
     } catch (err) {
