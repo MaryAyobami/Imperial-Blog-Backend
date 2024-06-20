@@ -256,3 +256,49 @@ exports.getAllRecipients = async (req, res, next) => {
       });
     }
   };
+
+  
+  exports.getSingleNewsletter = async (req, res, next) => {
+    try {
+     
+      const Newsletter = await db.Newsletter.findOne({
+        where:{
+          id: req.params.id
+        }
+      });
+   
+      res.status(200).json({
+        success: true,
+        message: "Newsletter fetched successfully",
+        Newsletter,
+      });
+    } catch (err) {
+      return res.status(500).json({
+        success: false,
+        error : err, 
+        message: "An error occured",
+      });
+    }
+  };
+
+  exports.deleteNewsletter = async (req, res, next) => {
+    try {
+     
+      await db.Newsletter.destroy({
+        where:{
+          id: req.params.id
+        }
+      });
+   
+      res.status(200).json({
+        success: true,
+        message: "Newsletter deleted successfully",
+      });
+    } catch (err) {
+      return res.status(500).json({
+        success: false,
+        error : err, 
+        message: "An error occured",
+      });
+    }
+  };
